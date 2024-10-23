@@ -3,6 +3,8 @@
 #include <stdlib.h>
 int main()
 {
+	printf("***To perform trig functions: function(x)***\n
+		***Arithmetic: variable *operator* variable***\n");
 	int counter = 0;
 	int size = 4;
 	int c; //  get char
@@ -70,6 +72,8 @@ int main()
 	{
 		answer = var1 / var2;
 	}
-	printf("%.3Lf", answer);
+
+	// adding trig functions
+	
 	return 0;
 }
