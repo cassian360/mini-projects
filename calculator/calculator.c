@@ -23,8 +23,8 @@ int main()
 
 	// parse the calculation
 	int count = 0;
-	int firstvarpos;
-	int secondvarpos;
+	int firstvarpos;// position of the first variable
+	int secondvarpos;// position of the second variable
 	char *firstVar = malloc(sizeof(char) * 10);
 	char *secondVar = malloc(sizeof(char) * 10);
 	// get length of calculation
@@ -32,10 +32,10 @@ int main()
 	{
 		count++;
 	}
-	char operator;
+	char operator; // hold the operator
 	for(int i = 0; calculation[i] != '\0'; i++ )
 	{
-		if(calculation[i] == '+' || calculation[i] == '-' || calculation[i] == '*')
+		if(calculation[i] == '+' || calculation[i] == '-' || calculation[i] == '*' || calculation[i] == '/')
 		{
 			operator = calculation[i];
 			firstvarpos = i;
@@ -49,29 +49,23 @@ int main()
 			}
 		}
 	}	
-	// convert to number
-	long double var1 = strtold(firstVar, NULL, 10);
-	long double var2 = strtold(secondVar, NULL, 10);
-	// print out the answer
-	long double answer;
-	if(operator == '+')
+	// convert to first variable to double
+	long double var1 = strtold(firstVar, NULL);
+	long double var2 = strtold(secondVar, NULL);
+	switch(operator)
 	{
-		answer = var1 + var2;
-	}
-	else if(operator == '-')
-	{
-		answer = var1 - var2;
-	}
-	else if(operator == '*')
-	{
-		answer = var1 * var2;
-	}
-	else if(operator == '/')
-	{
-		answer = var1 / var2;
+		case '+':
+			long double answer = var1 + var2;
+			printf("%.3Lf + %.3Lf = %.3Lf", var1, var2, answer);
+		case '-':
+			long double answer = var1 - var2;
+			printf("%.3Lf - %.3Lf = %.3Lf", var1, var2, answer);
+		case '/':
+			long double answer = var1 - var2;
+			printf("%.3Lf / %.3Lf = %.3Lf", var1, var2, answer);
+															
 	}
 
-	// adding trig functions
-	
-	return 0;
+
+	return 0; 
 }
