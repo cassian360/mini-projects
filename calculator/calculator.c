@@ -1,6 +1,7 @@
 // a simple calculator in c
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 int main()
 {
 	int counter = 0;
@@ -52,20 +53,30 @@ int main()
 	// convert to first variable to double
 	long double var1 = strtold(firstVar, NULL);
 	long double var2 = strtold(secondVar, NULL);
+	long double answer; // answer for the variables
 	switch(operator)
 	{
 		case '+':
-			long double answer = var1 + var2;
+			answer = var1 + var2;
 			printf("%.3Lf + %.3Lf = %.3Lf", var1, var2, answer);
+			break;
 		case '-':
-			long double answer = var1 - var2;
+			answer = var1 - var2;
 			printf("%.3Lf - %.3Lf = %.3Lf", var1, var2, answer);
+			break;
 		case '/':
-			long double answer = var1 - var2;
+			answer = var1 / var2;
 			printf("%.3Lf / %.3Lf = %.3Lf", var1, var2, answer);
-															
+			break;
+		case '*':
+			answer = var1 * var2;
+			printf("%.3Lf * %.3Lf = %.3Lf", var1, var2, answer);
+			break;
+		case '^': 
+			answer = powl(var1, var2);
+			printf("%.3Lf ^ %.3Lf = %.3Lf", var1, var2, answer);
+			break;
 	}
-
 
 	return 0; 
 }
